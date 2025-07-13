@@ -1,0 +1,34 @@
+<UserControl
+    x:Class="GpuInterop.GpuDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gpuInterop="clr-namespace:GpuInterop"
+    xmlns:local="clr-namespace:GpuInterop;assembly=GpuInterop">
+    <Grid>
+        <ContentControl Content="{Binding $parent[gpuInterop:GpuDemo].Demo}" />
+
+        <StackPanel>
+            <TextBlock Margin="0,40,0,0" Text="{Binding $parent[gpuInterop:GpuDemo].Info}" />
+        </StackPanel>
+        <Grid Margin="20" ColumnDefinitions="*,Auto">
+            <StackPanel Grid.Column="1" MinWidth="300">
+                <TextBlock>Yaw</TextBlock>
+                <Slider Maximum="10" Value="{Binding $parent[gpuInterop:GpuDemo].Yaw, Mode=TwoWay}" />
+                <TextBlock>Pitch</TextBlock>
+                <Slider Maximum="10" Value="{Binding $parent[gpuInterop:GpuDemo].Pitch, Mode=TwoWay}" />
+                <TextBlock>Roll</TextBlock>
+                <Slider Maximum="10" Value="{Binding $parent[gpuInterop:GpuDemo].Roll, Mode=TwoWay}" />
+                <StackPanel IsVisible="{Binding $parent[gpuInterop:GpuDemo].DiscoVisible}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="Bold" Foreground="#C000C0">D</TextBlock>
+                        <TextBlock FontWeight="Bold" Foreground="#00C090">I</TextBlock>
+                        <TextBlock FontWeight="Bold" Foreground="#90C000">S</TextBlock>
+                        <TextBlock FontWeight="Bold" Foreground="#C09000">C</TextBlock>
+                        <TextBlock FontWeight="Bold" Foreground="#00C090">O</TextBlock>
+                    </StackPanel>
+                    <Slider Maximum="1" Value="{Binding $parent[gpuInterop:GpuDemo].Disco, Mode=TwoWay}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
